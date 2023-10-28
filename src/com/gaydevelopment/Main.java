@@ -93,10 +93,10 @@ public class Main extends Application {
         });
 
         scene.addEventHandler(KeyEvent.KEY_RELEASED, (key) -> {
-            if (key.getCode() == KeyCode.A) {
+            if (key.getCode() == KeyCode.A || key.getCode() == KeyCode.LEFT) {
                 player.velocityX = 0;
             }
-            if (key.getCode() == KeyCode.D) {
+            if (key.getCode() == KeyCode.D || key.getCode() == KeyCode.RIGHT) {
                 player.velocityX = 0;
             }
         });
