@@ -170,6 +170,12 @@ public class Main extends Application {
         }
         player.collide(playerCollisions);
         rain();
+
+        if (player.getX() > width - 10) {
+            for (GameObject obj: gameObjects) {
+                obj.setX(obj.getX() - width);
+            }
+        }
     }
 
 
