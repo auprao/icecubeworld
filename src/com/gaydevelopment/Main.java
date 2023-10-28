@@ -41,9 +41,13 @@ public class Main extends Application {
         Scene scene = new Scene(root, width, height);
         primaryStage.setScene(scene);
 
+        Rectangle bg = new Rectangle(width,height);
+        bg.setFill(Color.rgb(0, 0, 40));
+        root.getChildren().add(bg);
+
         for (int i = 0; i < 100; i++) {
-            Rectangle particle = new Rectangle(10, 5);
-            particle.setFill(Color.rgb(0, 0, 0, 0.5));
+            Rectangle particle = new Rectangle(5, 10);
+            particle.setFill(Color.rgb(204, 255, 255, 0.5));
             particle.setX(Math.random() * width);
             particle.setY(Math.random() * -height);
             rainParticles.add(particle);
@@ -99,7 +103,7 @@ public class Main extends Application {
         double newY;
         for (int i = 0; i < rainParticles.size(); i++) {
             newX = rainParticles.get(i).getX() + (Math.random() - 0.5);
-            newY = rainParticles.get(i).getY() + (Math.random() + 2);
+            newY = rainParticles.get(i).getY() + (Math.random() + 10);
             rainParticles.get(i).setX(newX);
             rainParticles.get(i).setY((newY + height) % height);
         }
