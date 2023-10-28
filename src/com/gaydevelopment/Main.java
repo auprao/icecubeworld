@@ -64,15 +64,24 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    public void rain(){
+
+    }
+
+    // TODO: 28.10.2023 manually create arrays / maps
+
     public void loadMapFromArray(GameObject[][] array){
         int generationX = 0;
         int generationY = 0;
         for (int r = 0; r < array.length; r++) {
             for (int c = 0; c < array[0].length; c++) {
-
+                gameObjects.add(array[r][c]);
                 generationX = generationX + width / array.length;
             }
             generationY = generationY + height / array[0].length;
+        }
+        for (int i = 0; i < gameObjects.size(); i++) {
+            root.getChildren().add(gameObjects.get(i));
         }
     }
 
@@ -85,6 +94,7 @@ public class Main extends Application {
         for (GameObject obj: gameObjects) {
             obj.update();
         }
+        rain();
     }
 
 
