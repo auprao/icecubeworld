@@ -27,6 +27,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    public void rain(){
+
+    }
+
+    // TODO: 28.10.2023 manually create arrays / maps
+
     public void loadMapFromArray(GameObject[][] array){
         int generationX = 0;
         int generationY = 0;
@@ -46,6 +52,7 @@ public class Main extends Application {
         for (GameObject obj: gameObjects) {
 
         }
+        rain();
     }
 
 
