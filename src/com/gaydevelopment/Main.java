@@ -21,8 +21,8 @@ import static com.gaydevelopment.Tiles.Ground;
 
 public class Main extends Application {
 
-    static int width = 1280;
-    static int height = 720;
+    static int width = 1800;
+    static int height = 600;
 
     static final int FPS = 60;
 
