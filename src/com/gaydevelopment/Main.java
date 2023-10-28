@@ -26,6 +26,8 @@ public class Main extends Application {
 
     static final int FPS = 60;
 
+    static IceCube player;
+
     static List<Rectangle> rainParticles = new LinkedList<>();
 
     static LinkedList<GameObject> gameObjects = new LinkedList<>();
@@ -65,31 +67,27 @@ public class Main extends Application {
         mainTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1 / (double) FPS), e -> newFrame()));
         mainTimeline.play();
         //temp
-        IceCube icecube = new IceCube(500, 100, "file:iceCubeSprite.png");
-        icecube.setScaleX(0.3);
-        icecube.setScaleY(0.3);
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             if (key.getCode() == KeyCode.A) {
-                icecube.velocityX = -10;
+                player.velocityX = -10;
             }
             if (key.getCode() == KeyCode.D) {
-                icecube.velocityX = 10;
+                player.velocityX = 10;
             }
             if (key.getCode() == KeyCode.SPACE) {
-                icecube.velocityY = -50;
+                player.velocityY = -50;
             }
         });
 
         scene.addEventHandler(KeyEvent.KEY_RELEASED, (key) -> {
             if (key.getCode() == KeyCode.A) {
-                icecube.velocityX = 0;
+                player.velocityX = 0;
             }
             if (key.getCode() == KeyCode.D) {
-                icecube.velocityX = 0;
+                player.velocityX = 0;
             }
         });
-        addGameObject(icecube);
 
         primaryStage.show();
     }
@@ -108,6 +106,12 @@ public class Main extends Application {
     // TODO: 28.10.2023 manually create arrays / maps
 
     public void loadMapFromArray(Tiles[][] array){
+        IceCube icecube = new IceCube(500, 100, "file:iceCubeSprite.png");
+        icecube.setScaleX(0.3);
+        icecube.setScaleY(0.3);
+        addGameObject(icecube);
+        player = icecube;
+
         int generationX = 0;
         int generationY = 0;
         for (int r = 0; r < array.length; r++) {
@@ -132,9 +136,14 @@ public class Main extends Application {
     }
 
     public void newFrame() {
+        LinkedList<GameObject> playerCollisions = new LinkedList<>();
         for (GameObject obj: gameObjects) {
+            if (obj.getBoundsInParent().intersects(player.getBoundsInParent())) {
+                playerCollisions.add(obj);
+            }
             obj.update();
         }
+        player.collide(playerCollisions);
         rain();
     }
 
