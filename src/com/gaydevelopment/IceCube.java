@@ -1,5 +1,7 @@
 package com.gaydevelopment;
 
+import java.util.List;
+
 public class IceCube extends GameObject {
     static final double fallSpeedCap = 30;
     static final double gravity = 2.5;
@@ -17,6 +19,14 @@ public class IceCube extends GameObject {
             this.velocityY += gravity;
         }
         melting -= 0.1;
+    }
+
+    public void collide(List<GameObject> collisionObjects) {
+        for (GameObject obj: collisionObjects) {
+            if (obj instanceof Ground) {
+                this.velocityY = 0;
+            }
+        }
     }
 
 }

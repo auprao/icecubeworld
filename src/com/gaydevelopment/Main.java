@@ -26,6 +26,8 @@ public class Main extends Application {
 
     static final int FPS = 60;
 
+    static IceCube player;
+
     static List<Rectangle> rainParticles = new LinkedList<>();
 
     static LinkedList<GameObject> gameObjects = new LinkedList<>();
@@ -82,22 +84,22 @@ public class Main extends Application {
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             if (key.getCode() == KeyCode.A || key.getCode() == KeyCode.LEFT) {
-                icecube.velocityX = -10;
+                player.velocityX = -10;
             }
             if (key.getCode() == KeyCode.D || key.getCode() == KeyCode.RIGHT) {
-                icecube.velocityX = 10;
+                player.velocityX = 10;
             }
             if (key.getCode() == KeyCode.SPACE || key.getCode() == KeyCode.W || key.getCode() == KeyCode.UP) {
-                icecube.velocityY = -30;
+                player.velocityY = -30;
             }
         });
 
         scene.addEventHandler(KeyEvent.KEY_RELEASED, (key) -> {
             if (key.getCode() == KeyCode.A) {
-                icecube.velocityX = 0;
+                player.velocityX = 0;
             }
             if (key.getCode() == KeyCode.D) {
-                icecube.velocityX = 0;
+                player.velocityX = 0;
             }
         });
         addGameObject(icecube);
@@ -119,6 +121,12 @@ public class Main extends Application {
     // TODO: 28.10.2023 manually create arrays / maps
 
     public void loadMapFromArray(Tiles[][] array){
+        IceCube icecube = new IceCube(500, 100, "file:iceCubeSprite.png");
+        icecube.setScaleX(0.3);
+        icecube.setScaleY(0.3);
+        addGameObject(icecube);
+        player = icecube;
+
         int generationX = 0;
         int generationY = 0;
         for (int r = 0; r < array.length; r++) {
@@ -143,9 +151,14 @@ public class Main extends Application {
     }
 
     public void newFrame() {
+        LinkedList<GameObject> playerCollisions = new LinkedList<>();
         for (GameObject obj: gameObjects) {
+            if (obj.getBoundsInParent().intersects(player.getBoundsInParent())) {
+                playerCollisions.add(obj);
+            }
             obj.update();
         }
+        player.collide(playerCollisions);
         rain();
     }
 
