@@ -21,10 +21,7 @@ public class IceCube extends GameObject {
             this.velocityY += gravity;
         }
         melting -= 0.1;
-
-        if (melting <= 90 && melting > 80){
-
-        }
+        melt(melting);
     }
 
     public void collide(List<GameObject> collisionObjects) {
@@ -33,6 +30,36 @@ public class IceCube extends GameObject {
                 this.velocityY = 0;
                 this.canJump = true;
             }
+        }
+    }
+
+    public void melt(double melting){
+        if (melting <= 90 && melting > 80){
+
+        }
+        if (melting <= 80 && melting > 70){
+
+        }
+        if (melting <= 70 && melting > 60){
+
+        }
+        if (melting <= 60 && melting > 50){
+
+        }
+        if (melting <= 50 && melting > 40){
+
+        }
+        if (melting <= 40 && melting > 30){
+
+        }
+        if (melting <= 30 && melting > 20){
+
+        }
+        if (melting <= 20 && melting > 10){
+
+        }
+        if (melting <= 10 && melting > 0){
+//?????????????????????????????????????????
         }
     }
 

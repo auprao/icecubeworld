@@ -160,6 +160,11 @@ public class Main extends Application {
         root.getChildren().add(obj);
     }
 
+    public void removeGameObject(GameObject obj) {
+        gameObjects.remove(obj);
+        root.getChildren().remove(obj);
+    }
+
     public void newFrame() {
         LinkedList<GameObject> playerCollisions = new LinkedList<>();
         for (GameObject obj: gameObjects) {
