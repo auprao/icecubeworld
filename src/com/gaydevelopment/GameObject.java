@@ -1,27 +1,20 @@
 package com.gaydevelopment;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-public class GameObject {
-    public int x, y;
-    public int width, height;
-
+public class GameObject extends ImageView {
     public double velocityX, velocityY;
 
-    public Image sprite;
-
-    public GameObject(int x, int y, Image sprite) {
-        this.x = x;
-        this.y = y;
+    public GameObject(int x, int y, String filePath) {
+        super(new Image(filePath));
         this.velocityX = 0;
         this.velocityY = 0;
-
-        this.sprite = sprite;
     }
 
     public void update() {
-        this.x += this.velocityX;
-        this.y += this.velocityY;
+        this.setX(this.getX() + this.velocityX);
+        this.setY(this.getY() + this.velocityY);
     }
 
 

@@ -14,6 +14,8 @@ public class Main extends Application {
 
     static LinkedList<GameObject> gameObjects = new LinkedList<>();
 
+
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -25,4 +27,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+
 }
