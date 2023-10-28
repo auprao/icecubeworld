@@ -18,6 +18,7 @@ import java.util.List;
 
 import static com.gaydevelopment.Tiles.Air;
 import static com.gaydevelopment.Tiles.Ground;
+import static com.gaydevelopment.Tiles.Grass;
 
 public class Main extends Application {
 
@@ -63,7 +64,7 @@ public class Main extends Application {
                 {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
                 {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
                 {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Air,Air,Air,Air,Ground, Ground, Ground, Ground,Ground,Ground, Ground, Ground, Ground,Ground,Ground, Ground, Ground, Ground,Ground,Ground, Ground, Ground, Ground,Ground,Ground, Ground, Ground, Ground,Ground},
+                {Air,Air,Air,Air,Air,Air,Grass, Grass, Grass, Grass,Grass,Grass, Grass, Grass, Grass,Grass,Grass, Grass, Grass, Grass,Grass,Grass, Grass, Grass, Grass,Grass,Grass, Grass, Grass, Grass,Grass},
                 {Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
                 {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Air,Air,Air,Air,Ground,Ground,Ground,Ground,Ground},
                 {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air}
@@ -134,6 +135,18 @@ public class Main extends Application {
                         break;
                     case Ground:
                         addGameObject(new Ground(generationX, generationY));
+                        break;
+                    case Grass:
+                        addGameObject(new Grass(generationX, generationY));
+                        break;
+                    case Fridge:
+                        addGameObject(new Fridge(generationX, generationY));
+                        break;
+                    case Snowflake:
+                        addGameObject(new Snowflake(generationX, generationY));
+                        break;
+                    case SnowGround:
+                        addGameObject(new Snow(generationX, generationY));
                         break;
                 }
                 generationX = c * (width / array[0].length) - 50;

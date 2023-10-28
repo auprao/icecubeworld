@@ -25,7 +25,7 @@ public class IceCube extends GameObject {
 
     public void collide(List<GameObject> collisionObjects) {
         for (GameObject obj: collisionObjects) {
-            if (obj instanceof Ground) {
+            if (obj instanceof Grass) {
                 this.velocityY = 0;
                 this.canJump = true;
             }
