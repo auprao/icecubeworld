@@ -5,10 +5,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.util.LinkedList;
+
 public class Main extends Application {
 
     static int width = 1280;
     static int height = 720;
+
+    static LinkedList<GameObject> gameObjects = new LinkedList<>();
 
     public static void main(String[] args) {
         launch(args);
