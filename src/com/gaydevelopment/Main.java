@@ -155,12 +155,12 @@ public class Main extends Application {
         }
     }
 
-    public void addGameObject(GameObject obj) {
+    public static void addGameObject(GameObject obj) {
         gameObjects.add(obj);
         root.getChildren().add(obj);
     }
 
-    public void removeGameObject(GameObject obj) {
+    public static void removeGameObject(GameObject obj) {
         gameObjects.remove(obj);
         root.getChildren().remove(obj);
     }
@@ -176,12 +176,12 @@ public class Main extends Application {
         player.collide(playerCollisions);
         rain();
 
-        if (player.getX() > width - 10) {
+        if (player.getX() > width - 9) {
             for (GameObject obj: gameObjects) {
                 obj.setX(obj.getX() - width);
             }
         }
-        else if (player.getX() < 10) {
+        else if (player.getX() < 9) {
             for (GameObject obj: gameObjects) {
                 obj.setX(obj.getX() + width);
             }

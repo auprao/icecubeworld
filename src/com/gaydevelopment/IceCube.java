@@ -47,6 +47,13 @@ public class IceCube extends GameObject {
                 continue;
             }
 
+            if (obj instanceof Snowflake) {
+                this.melting *= 1.1;
+                if (this.melting > 100) this.melting = 100;
+                Main.removeGameObject(obj);
+                continue;
+            }
+
             this.velocityY = 0;
             if (obj instanceof Grass) {
                 this.setY(this.getY() - 5);
