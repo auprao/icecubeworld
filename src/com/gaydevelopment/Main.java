@@ -69,7 +69,7 @@ public class Main extends Application {
         mainTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1 / (double) FPS), e -> newFrame()));
         mainTimeline.play();
         //temp
-        IceCube icecube = new IceCube(500, 100, "file:iceCubeSprite.pn g");
+        IceCube icecube = new IceCube(500, 100, "file:iceCubeSprite.png");
         icecube.setScaleX(0.3);
         icecube.setScaleY(0.3);
 
@@ -81,7 +81,7 @@ public class Main extends Application {
                 icecube.velocityX = 10;
             }
             if (key.getCode() == KeyCode.SPACE) {
-                icecube.velocityY = -50;
+                icecube.velocityY = -30;
             }
         });
 

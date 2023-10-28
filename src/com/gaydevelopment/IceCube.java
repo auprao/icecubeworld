@@ -3,6 +3,7 @@ package com.gaydevelopment;
 public class IceCube extends GameObject {
     static final double fallSpeedCap = 30;
     static final double gravity = 2.5;
+    static double melting = 100.0;
 
     public IceCube(int x, int y, String filePath) {
         super(x, y, filePath);
@@ -15,6 +16,7 @@ public class IceCube extends GameObject {
         if (this.velocityY < fallSpeedCap) {
             this.velocityY += gravity;
         }
+        melting -= 0.1;
     }
 
 }
