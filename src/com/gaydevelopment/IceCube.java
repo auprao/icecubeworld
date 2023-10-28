@@ -40,6 +40,11 @@ public class IceCube extends GameObject {
         for (GameObject obj: collisionObjects) {
             if (obj instanceof Air || obj.equals(this)) continue;
 
+            if (obj instanceof Fridge) {
+                this.melting = 100.0;
+                continue;
+            }
+
             this.velocityY = 0;
             if (obj instanceof Grass) {
                 this.setY(this.getY() - 5);
@@ -56,6 +61,8 @@ public class IceCube extends GameObject {
             if (this.velocityX > 0) {
                 this.setX(this.getX() - 5);
             }
+
+
 
             this.canJump = true;
         }
