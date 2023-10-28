@@ -56,17 +56,17 @@ public class Main extends Application {
         }
 
         Tiles[][] map1 = {
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air, Grass, Grass,Air,Air,Air, Air ,Air,Air,Air,Air},
-                {Air,Grass, Ground, Ground, Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Ground, Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air, Ground, Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Grass, Ground,Air,Air,Air,Air,Air,Air,Fridge,Air,Grass},
-                {Air,Ground,Ground,Grass,Air,Air,Air,Air,Grass,Grass,Grass,Ground},
-                {Air,Ground,Ground,Ground, Grass, Grass, Grass, Grass,Ground,Ground,Ground,Ground},
-                {Air,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air},
-                {Air,Air, Air, Ground, Ground, Ground,Ground,Ground,Ground,Air,Air,Air}
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air, Grass, Grass,Air,Air,Air, Air ,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Grass, Ground, Ground, Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Ground, Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air, Ground, Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Grass, Ground,Air,Air,Air,Air,Air,Air,Fridge,Air,Grass,Grass,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Ground,Ground,Grass,Air,Air,Air,Air,Grass,Grass,Grass,Ground,Ground,Grass,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Ground,Ground,Ground, Grass, Grass, Grass, Grass,Ground,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Snowflake,Air,Grass,Grass,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air, Air, Ground, Ground, Ground,Ground,Ground,Ground,Air,Air,Air,Grass,Grass,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air}
         };
 
         loadMapFromArray(map1);
