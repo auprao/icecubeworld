@@ -23,7 +23,7 @@ import static com.gaydevelopment.Tiles.Grass;
 public class Main extends Application {
 
     static int width = 1800;
-    static int height = 600;
+    static int height = 620;
 
     static final int FPS = 60;
 
@@ -58,16 +58,17 @@ public class Main extends Application {
         }
 
         Tiles[][] map1 = {
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Air,Air,Air,Air,Grass, Grass, Grass, Grass,Grass,Grass, Grass, Grass, Grass,Grass,Grass, Grass, Grass, Grass,Grass,Grass, Grass, Grass, Grass,Grass,Grass, Grass, Grass, Grass,Grass},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Air,Air,Air,Air,Ground,Ground,Ground,Ground,Ground},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air}
+                {Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air, Grass, Grass,Air,Air,Air,Air},
+                {Air,Grass, Ground, Ground, Air,Air,Air,Air},
+                {Air,Ground, Ground,Air,Air,Air,Air,Air},
+                {Air,Air, Ground, Air,Air,Air,Air,Air},
+                {Air,Air,Ground,Air,Air,Air,Air,Air},
+                {Air,Grass, Ground,Air,Air,Air,Air,Air},
+                {Air,Ground,Ground,Grass,Air,Air,Air,Air},
+                {Air,Ground,Ground,Ground, Grass, Grass, Grass, Grass},
+                {Air,Ground,Ground,Ground,Ground,Ground,Ground,Ground},
+                {Air,Air, Air, Ground, Ground, Ground,Ground,Ground}
         };
 
         loadMapFromArray(map1);
@@ -119,7 +120,7 @@ public class Main extends Application {
     // TODO: 28.10.2023 manually create arrays / maps
 
     public void loadMapFromArray(Tiles[][] array){
-        IceCube icecube = new IceCube(500, 100, "file:iceCubeSprite.png");
+        IceCube icecube = new IceCube(200, 200, "file:iceCubeSprite.png");
         icecube.setScaleX(0.3);
         icecube.setScaleY(0.3);
         addGameObject(icecube);
@@ -177,7 +178,4 @@ public class Main extends Application {
             }
         }
     }
-
-
-
 }
