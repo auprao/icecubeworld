@@ -55,11 +55,16 @@ public class Main extends Application {
         }
 
         Tiles[][] map1 = {
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air},
-                {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air}
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Ground,Ground,Ground,Ground,Ground},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air}
         };
 
         loadMapFromArray(map1);
@@ -124,7 +129,7 @@ public class Main extends Application {
                         addGameObject(new Ground(generationX, generationY));
                         break;
                 }
-                generationX = (c-1) * (width / array[0].length);
+                generationX = c * (width / array[0].length) - 50;
             }
             generationY = (r) * (height / array.length);
         }
