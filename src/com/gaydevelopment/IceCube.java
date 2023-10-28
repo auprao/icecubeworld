@@ -5,7 +5,9 @@ import java.util.List;
 public class IceCube extends GameObject {
     static final double fallSpeedCap = 30;
     static final double gravity = 2.5;
-    static double melting = 100.0;
+    public double melting = 100.0;
+
+    public boolean canJump = true;
 
     public IceCube(int x, int y, String filePath) {
         super(x, y, filePath);
@@ -25,6 +27,7 @@ public class IceCube extends GameObject {
         for (GameObject obj: collisionObjects) {
             if (obj instanceof Ground) {
                 this.velocityY = 0;
+                this.canJump = true;
             }
         }
     }
