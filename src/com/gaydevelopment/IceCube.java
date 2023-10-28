@@ -21,6 +21,10 @@ public class IceCube extends GameObject {
             this.velocityY += gravity;
         }
         melting -= 0.1;
+
+        if (melting <= 90 && melting > 80){
+
+        }
     }
 
     public void collide(List<GameObject> collisionObjects) {
