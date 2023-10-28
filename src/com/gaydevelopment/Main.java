@@ -81,13 +81,13 @@ public class Main extends Application {
         icecube.setScaleY(0.3);
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
-            if (key.getCode() == KeyCode.A) {
+            if (key.getCode() == KeyCode.A || key.getCode() == KeyCode.LEFT ) {
                 player.velocityX = -10;
             }
-            if (key.getCode() == KeyCode.D) {
+            if (key.getCode() == KeyCode.D || key.getCode() == KeyCode.RIGHT) {
                 player.velocityX = 10;
             }
-            if (key.getCode() == KeyCode.SPACE) {
+            if (key.getCode() == KeyCode.SPACE || key.getCode() == KeyCode.W || key.getCode() == KeyCode.UP) {
                 player.velocityY = -30;
             }
         });
