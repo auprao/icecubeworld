@@ -8,6 +8,8 @@ public class GameObject extends ImageView {
 
     public GameObject(int x, int y, String filePath) {
         super(new Image(filePath));
+        this.setX(x);
+        this.setY(y);
         this.velocityX = 0;
         this.velocityY = 0;
     }

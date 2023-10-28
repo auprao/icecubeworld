@@ -14,7 +14,7 @@ public class Main extends Application {
 
     static LinkedList<GameObject> gameObjects = new LinkedList<>();
 
-
+    static AnchorPane root = new AnchorPane();
 
     public static void main(String[] args) {
         launch(args);
@@ -22,7 +22,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        AnchorPane root = new AnchorPane();
         Scene scene = new Scene(root, width, height);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -37,6 +36,12 @@ public class Main extends Application {
                 generationX = generationX + width / array.length;
             }
             generationY = generationY + height / array[0].length;
+        }
+    }
+
+    public void newFrame() {
+        for (GameObject obj: gameObjects) {
+
         }
     }
 
