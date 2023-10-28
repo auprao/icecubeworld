@@ -88,7 +88,7 @@ public class Main extends Application {
                 player.velocityX = 10;
             }
             if (key.getCode() == KeyCode.SPACE) {
-                player.velocityY = -50;
+                icecube.velocityY = -30;
             }
         });
 
