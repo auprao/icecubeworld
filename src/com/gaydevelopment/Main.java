@@ -25,6 +25,7 @@ public class Main extends Application {
 
     static final int FPS = 60;
 
+    static Timeline mainTimeline = new Timeline();
     static IceCube player;
 
     static List<Rectangle> rainParticles = new LinkedList<>();
@@ -71,7 +72,7 @@ public class Main extends Application {
 
         loadMapFromArray(map1);
 
-        Timeline mainTimeline = new Timeline();
+
         mainTimeline.setCycleCount(-1);
         mainTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1 / (double) FPS), e -> newFrame()));
         mainTimeline.play();
