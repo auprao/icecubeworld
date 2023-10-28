@@ -17,7 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         AnchorPane root = new AnchorPane();
-        Scene scene = new Scene(root,1280, 720);
+        Scene scene = new Scene(root, width, height);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
