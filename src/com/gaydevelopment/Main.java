@@ -60,10 +60,10 @@ public class Main extends Application {
                 {Air,Air, Grass, Grass,Air,Air,Air, Air ,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
                 {Air,Grass, Ground, Ground, Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
                 {Air,Ground, Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air, Ground, Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Fridge,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Grass,Grass,Grass,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Grass, Ground,Air,Air,Air,Air,Air,Air,Snowflake,Air,Grass,Grass,Air,Air,Air,Air,Ground,Ground,Ground,Grass,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Ground,Ground,Grass,Air,Air,Air,Air,Grass,Grass,Grass,Ground,Ground,Grass,Air,Air,Air,Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Grass,Ground,Ground,Ground,Air, Air, Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air, Ground, Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Grass,Grass,Grass,Air,Air,Air,Air,Air,Air,Air,Air,Air, Grass,Grass,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air, Air ,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Grass, Ground,Air,Air,Air,Air,Air,Air,Snowflake,Air,Grass,Grass,Air,Air,Air,Air,Ground,Ground,Ground,Grass,Air,Air,Air,Air,Air,Air,Air,Air,Ground,Ground,Air,Air,Air,Air,Air,Air,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Ground,Ground,Grass,Air,Air,Air,Air,Grass,Grass,Grass,Ground,Ground,Grass,Air,Air,Air,Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Fridge,Air,Grass,Ground,Ground,Ground,Air, Air, Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
                 {Air,Ground,Ground,Ground, Grass, Grass, Grass, Grass,Ground,Ground,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Grass,Grass,Grass,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
                 {Air,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Air,Air,Grass,Grass,Air,Air,Air,Air,Air,Air,Grass,Grass,Air,Air,Air,Air,Grass,Grass,Grass,Grass,Grass,Ground,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
                 {Air,Air, Air, Ground, Ground, Ground,Ground,Ground,Ground,Air,Air,Air,Grass,Grass,Ground,Ground,Grass,Air,Air,Air,Air,Grass,Ground,Ground,Air,Air,Air,Grass,Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air}
@@ -178,6 +178,11 @@ public class Main extends Application {
         if (player.getX() > width - 10) {
             for (GameObject obj: gameObjects) {
                 obj.setX(obj.getX() - width);
+            }
+        }
+        else if (player.getX() < 10) {
+            for (GameObject obj: gameObjects) {
+                obj.setX(obj.getX() + width);
             }
         }
     }
