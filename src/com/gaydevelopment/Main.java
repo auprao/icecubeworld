@@ -65,7 +65,7 @@ public class Main extends Application {
         mainTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1 / (double) FPS), e -> newFrame()));
         mainTimeline.play();
         //temp
-        IceCube icecube = new IceCube(500, 100, "file:trump.jpg");
+        IceCube icecube = new IceCube(500, 100, "file:iceCubeSprite.png");
         icecube.setScaleX(0.3);
         icecube.setScaleY(0.3);
 
