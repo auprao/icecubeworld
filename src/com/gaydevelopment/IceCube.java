@@ -1,6 +1,8 @@
 package com.gaydevelopment;
 
 import java.util.LinkedList;
+
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 
 import java.util.List;
@@ -79,7 +81,7 @@ public class IceCube extends GameObject {
                 melting = 100;
             }
             if (obj instanceof Snowflake){
-                melting += melting *0.1;
+                melting += 30;
                 if (melting >100){
                     melting = 100;
                 }
@@ -122,6 +124,17 @@ public class IceCube extends GameObject {
         }
         if (melting <= 10 && melting > 0){
             setImage("file:iceCube10.png");
+        }
+        if (melting <= 0){
+            Main.mainTimeline.stop();
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Game over");
+            errorAlert.setContentText("You melted :(");
+            errorAlert.show();
+            errorAlert.setOnCloseRequest(event -> {
+                errorAlert.hide();
+            }
+            );
         }
     }
 
