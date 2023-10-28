@@ -3,6 +3,7 @@ package com.gaydevelopment;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -15,6 +16,9 @@ import javafx.util.Duration;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.gaydevelopment.Tiles.Air;
+import static com.gaydevelopment.Tiles.Ground;
+
 public class Main extends Application {
 
     static int width = 1280;
@@ -22,7 +26,7 @@ public class Main extends Application {
 
     static final int FPS = 60;
 
-    static List<Rectangle> rainParticles;
+    static List<Rectangle> rainParticles = new LinkedList<>();
 
     static LinkedList<GameObject> gameObjects = new LinkedList<>();
 
@@ -36,6 +40,25 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Scene scene = new Scene(root, width, height);
         primaryStage.setScene(scene);
+
+        for (int i = 0; i < 100; i++) {
+            Rectangle particle = new Rectangle(10, 5);
+            particle.setFill(Color.rgb(0, 0, 0, 0.5));
+            particle.setX(Math.random() * width);
+            particle.setY(0);
+            rainParticles.add(particle);
+            root.getChildren().add(particle);
+        }
+
+        Tiles[][] map1 = {
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air},
+                {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air}
+        };
+
+        loadMapFromArray(map1);
 
         Timeline mainTimeline = new Timeline();
         mainTimeline.setCycleCount(-1);
@@ -69,34 +92,34 @@ public class Main extends Application {
         addGameObject(icecube);
 
         primaryStage.show();
-
-       /* for (int i = 0; i < 100; i++) {
-            Rectangle particle = new Rectangle();
-            particle.setFill(Color.rgb(204, 255, 255, 0.5));
-            rainParticles.add(particle);
-            root.getChildren().add(particle);
-        }*/
     }
 
     public void rain(){
-       /* double newX;
+        double newX;
         double newY;
         for (int i = 0; i < rainParticles.size(); i++) {
             newX = rainParticles.get(i).getX() + (Math.random() - 0.5);
-            newY = rainParticles.get(i).getX() + (Math.random() - 2);
+            newY = rainParticles.get(i).getY() + (Math.random() + 2);
             rainParticles.get(i).setX(newX);
             rainParticles.get(i).setY(newY);
         }
-*/    }
+    }
 
     // TODO: 28.10.2023 manually create arrays / maps
 
-    public void loadMapFromArray(GameObject[][] array){
+    public void loadMapFromArray(Tiles[][] array){
         int generationX = 0;
         int generationY = 0;
         for (int r = 0; r < array.length; r++) {
             for (int c = 0; c < array[0].length; c++) {
-                gameObjects.add(array[r][c]);
+                switch (array[r][c]) {
+                    case Air:
+                        gameObjects.add(new Air(generationX, generationY));
+                        break;
+                    case Ground:
+                        gameObjects.add(new Ground(generationX, generationY));
+                        break;
+                }
                 generationX = generationX + width / array.length;
             }
             generationY = generationY + height / array[0].length;
