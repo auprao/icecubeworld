@@ -7,10 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -18,6 +21,8 @@ public class Main extends Application {
     static int height = 720;
 
     static final int FPS = 60;
+
+    static List<Rectangle> rainParticles;
 
     static LinkedList<GameObject> gameObjects = new LinkedList<>();
 
@@ -62,10 +67,24 @@ public class Main extends Application {
         addGameObject(icecube);
 
         primaryStage.show();
+
+        for (int i = 0; i < 100; i++) {
+            Rectangle particle = new Rectangle();
+            particle.setFill(Color.rgb(204, 255, 255, 0.5));
+            rainParticles.add(particle);
+            root.getChildren().add(particle);
+        }
     }
 
     public void rain(){
-
+        double newX;
+        double newY;
+        for (int i = 0; i < rainParticles.size(); i++) {
+            newX = rainParticles.get(i).getX() + (Math.random() - 0.5);
+            newY = rainParticles.get(i).getX() + (Math.random() - 2);
+            rainParticles.get(i).setX(newX);
+            rainParticles.get(i).setY(newY);
+        }
     }
 
     // TODO: 28.10.2023 manually create arrays / maps
