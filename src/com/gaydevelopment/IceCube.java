@@ -48,7 +48,7 @@ public class IceCube extends GameObject {
             }
 
             if (obj instanceof Snowflake) {
-                this.melting *= 1.1;
+                this.melting *= 1.3;
                 if (this.melting > 100) this.melting = 100;
                 Main.removeGameObject(obj);
                 continue;
