@@ -125,31 +125,31 @@ public class Main extends Application {
         addGameObject(icecube);
         player = icecube;
 
-        int generationX = 0;
-        int generationY = 0;
+        double generationX = 0;
+        double generationY = 0;
         for (int r = 0; r < array.length; r++) {
             for (int c = 0; c < array[0].length; c++) {
                 switch (array[r][c]) {
                     case Air:
-                        addGameObject(new Air(generationX, generationY));
+                        addGameObject(new Air((int) generationX, (int) generationY));
                         break;
                     case Ground:
-                        addGameObject(new Ground(generationX, generationY));
+                        addGameObject(new Ground((int) generationX, (int) generationY));
                         break;
                     case Grass:
-                        addGameObject(new Grass(generationX, generationY));
+                        addGameObject(new Grass((int) generationX, (int) generationY));
                         break;
                     case Fridge:
-                        addGameObject(new Fridge(generationX, generationY));
+                        addGameObject(new Fridge((int) generationX, (int) generationY));
                         break;
                     case Snowflake:
-                        addGameObject(new Snowflake(generationX, generationY));
+                        addGameObject(new Snowflake((int) generationX, (int) generationY));
                         break;
                     case SnowGround:
-                        addGameObject(new Snow(generationX, generationY));
+                        addGameObject(new Snow((int) generationX, (int) generationY));
                         break;
                 }
-                generationX = c * (width / array[0].length) - 50;
+                generationX = c * (0.3 * 200);
             }
             generationY = (r) * (height / array.length);
         }
