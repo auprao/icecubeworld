@@ -43,9 +43,13 @@ public class Main extends Application {
         Scene scene = new Scene(root, width, height);
         primaryStage.setScene(scene);
 
+        Rectangle bg = new Rectangle(width,height);
+        bg.setFill(Color.rgb(0, 0, 40));
+        root.getChildren().add(bg);
+
         for (int i = 0; i < 100; i++) {
-            Rectangle particle = new Rectangle(10, 5);
-            particle.setFill(Color.rgb(0, 0, 0, 0.5));
+            Rectangle particle = new Rectangle(5, 10);
+            particle.setFill(Color.rgb(204, 255, 255, 0.5));
             particle.setX(Math.random() * width);
             particle.setY(Math.random() * -height);
             rainParticles.add(particle);
@@ -53,11 +57,16 @@ public class Main extends Application {
         }
 
         Tiles[][] map1 = {
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air},
-                {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground},
-                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air}
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air},
+                {Ground, Ground, Ground, Ground,Ground,Ground,Ground,Ground,Ground,Ground,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Ground,Ground,Ground,Ground,Ground},
+                {Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air,Air}
         };
 
         loadMapFromArray(map1);
@@ -67,6 +76,9 @@ public class Main extends Application {
         mainTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1 / (double) FPS), e -> newFrame()));
         mainTimeline.play();
         //temp
+        IceCube icecube = new IceCube(500, 100, "file:iceCubeSprite.png");
+        icecube.setScaleX(0.3);
+        icecube.setScaleY(0.3);
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             if (key.getCode() == KeyCode.A) {
@@ -88,6 +100,7 @@ public class Main extends Application {
                 player.velocityX = 0;
             }
         });
+        addGameObject(icecube);
 
         primaryStage.show();
     }
@@ -97,7 +110,7 @@ public class Main extends Application {
         double newY;
         for (int i = 0; i < rainParticles.size(); i++) {
             newX = rainParticles.get(i).getX() + (Math.random() - 0.5);
-            newY = rainParticles.get(i).getY() + (Math.random() + 2);
+            newY = rainParticles.get(i).getY() + (Math.random() + 10);
             rainParticles.get(i).setX(newX);
             rainParticles.get(i).setY((newY + height) % height);
         }
@@ -124,7 +137,7 @@ public class Main extends Application {
                         addGameObject(new Ground(generationX, generationY));
                         break;
                 }
-                generationX = (c-1) * (width / array[0].length);
+                generationX = c * (width / array[0].length) - 50;
             }
             generationY = (r) * (height / array.length);
         }
