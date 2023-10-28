@@ -78,14 +78,16 @@ public class Main extends Application {
         icecube.setScaleX(0.3);
         icecube.setScaleY(0.3);
 
+        // TODO: 28.10.2023 when going L/R, icecube doesnt stop going that way?
+
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
-            if (key.getCode() == KeyCode.A) {
+            if (key.getCode() == KeyCode.A || key.getCode() == KeyCode.LEFT) {
                 icecube.velocityX = -10;
             }
-            if (key.getCode() == KeyCode.D) {
+            if (key.getCode() == KeyCode.D || key.getCode() == KeyCode.RIGHT) {
                 icecube.velocityX = 10;
             }
-            if (key.getCode() == KeyCode.SPACE) {
+            if (key.getCode() == KeyCode.SPACE || key.getCode() == KeyCode.W || key.getCode() == KeyCode.UP) {
                 icecube.velocityY = -30;
             }
         });
