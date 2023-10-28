@@ -75,10 +75,6 @@ public class Main extends Application {
         mainTimeline.setCycleCount(-1);
         mainTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1 / (double) FPS), e -> newFrame()));
         mainTimeline.play();
-        //temp
-        IceCube icecube = new IceCube(500, 100, "file:iceCubeSprite.png");
-        icecube.setScaleX(0.3);
-        icecube.setScaleY(0.3);
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             if (key.getCode() == KeyCode.A) {
@@ -88,7 +84,7 @@ public class Main extends Application {
                 player.velocityX = 10;
             }
             if (key.getCode() == KeyCode.SPACE) {
-                icecube.velocityY = -30;
+                player.velocityY = -30;
             }
         });
 
@@ -100,7 +96,6 @@ public class Main extends Application {
                 player.velocityX = 0;
             }
         });
-        addGameObject(icecube);
 
         primaryStage.show();
     }
