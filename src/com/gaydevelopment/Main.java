@@ -43,6 +43,8 @@ public class Main extends Application {
         mainTimeline.play();
         //temp
         IceCube icecube = new IceCube(500, 500, "file:trump.jpg");
+        icecube.setScaleX(0.3);
+        icecube.setScaleY(0.3);
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             if (key.getCode() == KeyCode.A) {
@@ -52,7 +54,7 @@ public class Main extends Application {
                 icecube.velocityX = 10;
             }
             if (key.getCode() == KeyCode.SPACE) {
-                icecube.velocityY = -10;
+                icecube.velocityY = -50;
             }
         });
 
@@ -68,16 +70,16 @@ public class Main extends Application {
 
         primaryStage.show();
 
-        for (int i = 0; i < 100; i++) {
+       /* for (int i = 0; i < 100; i++) {
             Rectangle particle = new Rectangle();
             particle.setFill(Color.rgb(204, 255, 255, 0.5));
             rainParticles.add(particle);
             root.getChildren().add(particle);
-        }
+        }*/
     }
 
     public void rain(){
-        double newX;
+       /* double newX;
         double newY;
         for (int i = 0; i < rainParticles.size(); i++) {
             newX = rainParticles.get(i).getX() + (Math.random() - 0.5);
@@ -85,7 +87,7 @@ public class Main extends Application {
             rainParticles.get(i).setX(newX);
             rainParticles.get(i).setY(newY);
         }
-    }
+*/    }
 
     // TODO: 28.10.2023 manually create arrays / maps
 

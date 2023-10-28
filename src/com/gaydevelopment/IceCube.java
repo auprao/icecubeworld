@@ -2,7 +2,7 @@ package com.gaydevelopment;
 
 public class IceCube extends GameObject {
     static final double fallSpeedCap = 30;
-    static final double gravity = 5;
+    static final double gravity = 2.5;
 
     public IceCube(int x, int y, String filePath) {
         super(x, y, filePath);
