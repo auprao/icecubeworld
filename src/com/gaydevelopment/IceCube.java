@@ -1,5 +1,6 @@
 package com.gaydevelopment;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class IceCube extends GameObject {
@@ -17,6 +18,15 @@ public class IceCube extends GameObject {
     public void update() {
         this.setX(this.getX() + this.velocityX);
         this.setY(this.getY() + this.velocityY);
+
+        /*LinkedList<GameObject> coll = this.checkCollisions();
+        for (GameObject collisionObject: coll) {
+            if (!(collisionObject instanceof Air)) {
+                this.setX(this.getX() - (this.velocityX));
+                this.setY(this.getY() + (this.getY() - collisionObject.getY()));
+            }
+        }*/
+
         if (this.velocityY < fallSpeedCap) {
             this.velocityY += gravity;
         }
@@ -26,11 +36,38 @@ public class IceCube extends GameObject {
 
     public void collide(List<GameObject> collisionObjects) {
         for (GameObject obj: collisionObjects) {
+            if (obj instanceof Air || obj.equals(this)) continue;
+
+            this.velocityY = 0;
             if (obj instanceof Grass) {
-                this.velocityY = 0;
-                this.canJump = true;
+                this.setY(this.getY() - 5);
+            }
+
+            if (obj instanceof Ground) {
+                this.setY(this.getY() + 5);
+            }
+
+            if (this.velocityX < 0) {
+                this.setX(this.getX() + 5);
+            }
+
+            if (this.velocityX > 0) {
+                this.setX(this.getX() - 5);
+            }
+
+            this.canJump = true;
+        }
+    }
+
+    public LinkedList<GameObject> checkCollisions() {
+        LinkedList<GameObject> colliding = new LinkedList<>();
+        for (GameObject obj: Main.gameObjects) {
+            if (obj.equals(this)) continue;
+            if (obj.getBoundsInParent().intersects(this.getBoundsInParent())) {
+                colliding.add(obj);
             }
         }
+        return colliding;
     }
 
     public void melt(double melting){
