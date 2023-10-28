@@ -65,7 +65,7 @@ public class Main extends Application {
         mainTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1 / (double) FPS), e -> newFrame()));
         mainTimeline.play();
         //temp
-        IceCube icecube = new IceCube(500, 500, "file:trump.jpg");
+        IceCube icecube = new IceCube(500, 100, "file:trump.jpg");
         icecube.setScaleX(0.3);
         icecube.setScaleY(0.3);
 
@@ -114,18 +114,15 @@ public class Main extends Application {
             for (int c = 0; c < array[0].length; c++) {
                 switch (array[r][c]) {
                     case Air:
-                        gameObjects.add(new Air(generationX, generationY));
+                        addGameObject(new Air(generationX, generationY));
                         break;
                     case Ground:
-                        gameObjects.add(new Ground(generationX, generationY));
+                        addGameObject(new Ground(generationX, generationY));
                         break;
                 }
                 generationX = generationX + width / array.length;
             }
             generationY = generationY + height / array[0].length;
-        }
-        for (int i = 0; i < gameObjects.size(); i++) {
-            root.getChildren().add(gameObjects.get(i));
         }
     }
 
