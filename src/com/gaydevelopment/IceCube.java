@@ -22,7 +22,7 @@ public class IceCube extends GameObject {
         if (this.velocityY < fallSpeedCap) {
             this.velocityY += gravity;
         }
-        melting -= 0.01;
+        melting -= 0.1;
         melt(melting);
     }
 
@@ -49,6 +49,9 @@ public class IceCube extends GameObject {
     }
 
     public void melt(double melting){
+        if (melting <= 100 && melting > 90){
+            setImage("file:iceCubeSprite.png");
+        }
         if (melting <= 90 && melting > 80){
             setImage("file:iceCube90.png");
         }
