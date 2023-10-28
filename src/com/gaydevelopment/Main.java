@@ -120,9 +120,9 @@ public class Main extends Application {
                         addGameObject(new Ground(generationX, generationY));
                         break;
                 }
-                generationX = generationX + width / array.length;
+                generationX = (c-1) * (width / array[0].length);
             }
-            generationY = generationY + height / array[0].length;
+            generationY = (r) * (height / array.length);
         }
     }
 
