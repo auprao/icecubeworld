@@ -45,7 +45,7 @@ public class Main extends Application {
             Rectangle particle = new Rectangle(10, 5);
             particle.setFill(Color.rgb(0, 0, 0, 0.5));
             particle.setX(Math.random() * width);
-            particle.setY(0);
+            particle.setY(Math.random() * -height);
             rainParticles.add(particle);
             root.getChildren().add(particle);
         }
@@ -101,7 +101,7 @@ public class Main extends Application {
             newX = rainParticles.get(i).getX() + (Math.random() - 0.5);
             newY = rainParticles.get(i).getY() + (Math.random() + 2);
             rainParticles.get(i).setX(newX);
-            rainParticles.get(i).setY(newY);
+            rainParticles.get(i).setY((newY + height) % height);
         }
     }
 
