@@ -19,5 +19,4 @@ public class GameObject extends ImageView {
         this.setY(this.getY() + this.velocityY);
     }
 
-
 }
